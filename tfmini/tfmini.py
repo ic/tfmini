@@ -99,7 +99,7 @@ class TFmini(object):
 
         raw = self.serial.read(7)
         # build a packet (array) of ints
-        pkt = [ord(a), ord(b)] + list(map(ord, raw))
+        pkt = [ord(a), ord(b)] + list(bytearray(raw))
         # print('pkt', pkt)
         try:
             ret = self.processPkt(pkt)
